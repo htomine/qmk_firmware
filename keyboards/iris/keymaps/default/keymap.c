@@ -17,8 +17,8 @@ enum custom_keycodes {
 #define KC_ KC_TRNS
 #define _______ KC_TRNS
 
-#define KC_LOWR LOWER
-#define KC_RASE RAISE
+#define KC_LOWER LOWER
+#define KC_RAISE RAISE
 #define KC_RST RESET
 #define KC_BL_S BL_STEP
 #define KC_DBUG DEBUG
@@ -30,6 +30,9 @@ enum custom_keycodes {
 #define KC_RSAD RGB_SAD
 #define KC_RVAI RGB_VAI
 #define KC_RVAD RGB_VAD
+#define KC_CTLTB CTL_T(KC_TAB)
+#define KC_GUIEI GUI_T(KC_LANG2)
+#define KC_ALTKN ALT_T(KC_LANG1)
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -38,13 +41,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      ESC , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,BSPC,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,BSLS,
+     TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,BSPC,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     LSFT, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,QUOT,
+     LCTL, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LCTL, Z  , X  , C  , V  , B  ,LOWR ,    RASE, N  , M  ,COMM,DOT ,SLSH,MINS,
+     LSFT, Z  , X  , C  , V  , B  , SPC ,     ENT, N  , M  ,COMM,DOT ,SLSH,BSLS,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       LALT,LGUI,SPC ,         ENT ,HAEN,HANJ
+                    GUIEI, LOWER,  SPC,       ENT, RAISE, ALTKN
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -52,13 +55,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      TILD,EXLM, AT ,HASH,DLR ,PERC,               CIRC,AMPR,ASTR,LPRN,RPRN,BSPC,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     GRV ,    ,    ,    ,    ,LCBR,               RCBR,MINS,MINS,LBRC,RBRC,PIPE,
+     GRV , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,PIPE,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      DEL ,    ,    ,    ,    ,    ,               LEFT,DOWN, UP ,RGHT,MINS,PLUS,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
      BL_S,    ,    ,    ,    ,LCBR,    ,         ,RCBR,    ,    ,    ,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                           ,    ,DEL ,         DEL ,    ,
+                    GUIEI, LOWER,  SPC,       ENT, RAISE, ALTKN
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -66,13 +69,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      F12 , F1 , F2 , F3 , F4 , F5 ,                F6 , F7 , F8 , F9 ,F10 ,F11 ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,EXLM, AT ,HASH,DLR ,PERC,               CIRC,AMPR,ASTR,LPRN,RPRN,    ,
+     ESC ,EXLM, AT ,HASH,DLR ,PERC,               CIRC,AMPR,ASTR,LPRN,RPRN,BSPC,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,MPRV,MNXT,VOLU,PGUP,UNDS,               EQL ,HOME,    ,    ,    ,BSLS,
+         ,MPRV,MNXT,VOLU,PGUP,UNDS,               MINS ,EQL,LCBR,RCBR,PIPE, GRV,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     MUTE,MSTP,MPLY,VOLD,PGDN,MINS,    ,         ,PLUS,END ,    ,    ,    ,    ,
+     MUTE,MSTP,MPLY,VOLD,PGDN,MINS,    ,         ,UNDS,PLUS,LBRC,RBRC,BSLS,TILD,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                           ,    ,    ,             ,    ,
+                    GUIEI, LOWER,  SPC,       ENT, RAISE, ALTKN
   //                  `----+----+----'        `----+----+----'
   ),
 
